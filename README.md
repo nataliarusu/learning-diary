@@ -109,4 +109,39 @@ import { Timer } from './assets/scripts/Timer.js'; => import { Timer } from './a
 6. in assets/scripts/app.js file was created by webpack
 
 <i>25/1/22</i><br>
-An async function without any awaits is allowed. All async functions return promises, even if they don't await. So, the function's return value will automatically be wrapped in a fulfilled promise.
+An async function without any awaits is allowed. All async functions return promises, even if they don't await. So, the function's return value will automatically be wrapped in a fulfilled promise.<br>
+<b>Summarize the rules of exceptions in async/await functions:</b><br>
+
+- async functions always return promises.
+- await turns rejected promises into exceptions.
+- Exceptions inside async functions turn into rejected promises.
+
+Exceptions in async functions: there's an important difference between <i> return somePromise</i> and <i>return await somePromise</i>.<br>
+The await translates rejected promises into exceptions. If we directly return the promise, rejections aren't translated into exceptions at all.
+
+
+    async function fail() {
+      try {
+        return await Promise.reject(new Error('oh no'));
+      } catch (e) {
+        return 'caught the error';
+      }
+    }
+    fail();
+    ASYNC RESULT:
+    {fulfilled: 'caught the error'}
+
+The second example returns the promise directly: return aRejectedPromise. There's no await, so the rejection doesn't turn into an exception, so there's nothing for our catch to catch. Instead, this example returns the original rejected promise.
+
+
+    async function fail() {
+      try {
+        return Promise.reject(new Error('oh no'));
+      } catch (e) {
+        return 'caught the error';
+      }
+    }
+    fail();
+     ASYNC RESULT:
+    {rejected: 'Error: oh no'}
+
