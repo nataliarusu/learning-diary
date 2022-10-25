@@ -108,3 +108,5 @@ import { Timer } from './assets/scripts/Timer.js'; => import { Timer } from './a
 
 6. in assets/scripts/app.js file was created by webpack
 
+<i>25/1/22</i><br>
+An async function without any awaits is allowed. All async functions return promises, even if they don't await. So, the function's return value will automatically be wrapped in a fulfilled promise.
