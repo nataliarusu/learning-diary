@@ -145,7 +145,7 @@ The second example returns the promise directly: return aRejectedPromise. There'
      ASYNC RESULT:
     {rejected: 'Error: oh no'}
 
-<i>2/10/22</i>
+<i>27/10/22</i>
 All async functions return promises, even if they don't await. So, the function's return value will automatically be wrapped in a fulfilled promise.
 
     async function double(n) {
