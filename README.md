@@ -154,3 +154,12 @@ All async functions return promises, even if they don't await. So, the function'
     double(5);
      ASYNC RESULT:
     {fulfilled: 10}
+    
+<i>29/10/22</i>
+Testing<br>
+There are 3 kind of tools we can use for testing
+1. Unit and integration => Test runner (Execute your tests, summarize results), we can use Mocha
+2. Unit and integration => Assertion library (Define testing logic, conditions, expectations), we can use Chai
+3. End to End => Simulates browser interaction, we can use Puppeteer
+Jest library for 1 and 2
+
