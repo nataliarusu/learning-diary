@@ -1,4 +1,22 @@
 # learning-diary
+<b>Tagged template literals</b><br>
+The tag function has access to the text and template values in the string, and can modify or replace the string.<br>
+
+The first argument is an array of the literal strings in the template literal. Literal strings are the parts that are not inside of a <code>${...}</code>. The rest parameter, <code>...values</code>, collects all of the interpolated values into an array. Interpolated values are the parts that are inside of a  <code>${...}</code>.
+If the template literal ends in an interpolated value, like `age: ${age}`, JavaScript will insert one more empty string, '', at the end. As a result, strings always has exactly one more element than ...values has.
+
+    function returnsItsArguments(strings, ...values) {
+        return {
+            strings: strings,
+            values: values,
+            };
+     }
+    returnsItsArguments`the numbers ${1} and ${1 + 1}`;
+    RESULT:
+    {strings: ['the numbers ', ' and ', ''], values: [1, 2]}
+https://www.executeprogram.com/courses/modern-javascript/lessons/tagged-template-literals
+
+
 <b> ::before ::after </b><br>
 Do ::before and ::after elements only display if we use position absolute?
 - If content: ''; 
