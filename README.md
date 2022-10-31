@@ -42,7 +42,7 @@ Jest library for 1 and 2
 
 
 
-<i>27/10/22</i>
+<i>27/10/22</i><br>
 All async functions return promises, even if they don't await. So, the function's return value will automatically be wrapped in a fulfilled promise.
 
     async function double(n) {
@@ -194,7 +194,7 @@ ctrl+shift+p =>(opens command panel) and we should choose create eslint configur
 on the terminal, there will be questions and we should answer them<br>
 Now I can use ESLint in my project
 
-<i>20/10/22</i>
+<i>20/10/22</i><br>
 Although setTimeout() and then() are asynchronous the Promise then will executes first eventhough setTimeout set to 0
 
 
