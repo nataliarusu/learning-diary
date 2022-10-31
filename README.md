@@ -1,4 +1,30 @@
 # learning-diary
+<b> ::before ::after </b><br>
+Do ::before and ::after elements only display if we use position absolute?
+- If content: ''; 
+    -  We don't need to have absolute positioning. We just need to set display property for the ::before and ::after pseudo-elements
+display: block, inline-block, flex... => we need to give it size / shape for pseudo element<br>
+ <code>.div-el::before {<br>
+            content: '';<br>
+            width: 60vw;<br>
+            height: 20vh;<br>
+            background-color: rgb(98, 0, 255);<br>
+            display: block;<br>
+        } </code><br> 
+Or<br>
+position: absolute, fixed...
+- If content: 'some text, this prop is not empty'; //if the content of pseudo selectors is not an empty string
+    - We don't need to have nor display, nor position, these will be regular display on HTML <br>
+    ::before will be rendered before main content of element, ::after will be rendered after main content of element
+    
+      <code>  .div-el::before {
+            content: 'Layer 1';
+        } </code> 
+        
+<i>before => content => after</i>   these are layers of one element and the content will be inserted in this order*/<br>
+Note: if pseudo el has position absolute, don't forget to add position: relative; to the element, which has these pseudo selectors.<br>
+If no position is provided the pseudo el takes the root el as parent
+
 <i>31/10/22</i>
 test-helper.js
 
