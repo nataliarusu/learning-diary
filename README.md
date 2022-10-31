@@ -1,38 +1,90 @@
 # learning-diary
-Although setTimeout() and then() are asynchronous the Promise then will executes first eventhough setTimeout set to 0
+<i>31/10/22</i>
+test-helper.js
+
+    function equal(actual, expected, message) {
+      if (actual === expected) {
+        const defaultMessage = `Expected ${expected} and received ${actual}`;
+        console.info("Pass: " + (message || defaultMessage));
+      } else {
+        const defaultMessage = `Expected ${expected} but received ${actual} instead`;
+        console.error("Fail: " + (message || defaultMessage));
+      }
+    }
+
+    function notEqual(actual, expected, message) {
+      if (actual !== expected) {
+        const defaultMessage = `${expected} is different to ${actual}`;
+        console.info("Pass: " + (message || defaultMessage));
+      } else {
+        const defaultMessage = `${expected} is the same as ${actual}`;
+        console.error("Fail: " + (message || defaultMessage));
+      }
+    }
+
+    function test(name, testFunction) {
+      console.group(name);
+      testFunction();
+      console.groupEnd(name);
+    }
+
+<i>29/10/22</i>
+Testing<br>
+There are 3 kind of tools we can use for testing
+1. Unit and integration => Test runner (Execute your tests, summarize results), we can use Mocha
+2. Unit and integration => Assertion library (Define testing logic, conditions, expectations), we can use Chai
+3. End to End => Simulates browser interaction, we can use Puppeteer
+Jest library for 1 and 2
 
 
-    setTimeout(() => console.log('asynchronous 1'), 0);
-    Promise.resolve().then(() => console.log('asynchronous 2'));
-<br>
-<i>21/10/22</i><br>
-<b>ESLint</b><br>
-I installed ESLint extension in VScode. To make our project to be managible by npm, we should 
+
+<i>27/10/22</i>
+All async functions return promises, even if they don't await. So, the function's return value will automatically be wrapped in a fulfilled promise.
+
+    async function double(n) {
+      return n * 2;
+    }
+    double(5);
+     ASYNC RESULT:
+    {fulfilled: 10}
     
-    npm init    
-after answering all questions in the terminal package.json file was created by npm. Now we can install packages with npm 
+<i>25/1/22</i><br>
+An async function without any awaits is allowed. All async functions return promises, even if they don't await. So, the function's return value will automatically be wrapped in a fulfilled promise.<br>
+<b>Summarize the rules of exceptions in async/await functions:</b><br>
+
+- async functions always return promises.
+- await turns rejected promises into exceptions.
+- Exceptions inside async functions turn into rejected promises.
+
+Exceptions in async functions: there's an important difference between <i> return somePromise</i> and <i>return await somePromise</i>.<br>
+The await translates rejected promises into exceptions. If we directly return the promise, rejections aren't translated into exceptions at all.
 
 
-    npm install <package name>  
-all dependenses will be stored in package.json. If someone downloads my project from github, this package.json will show all dependences.
-installe eslint
+    async function fail() {
+      try {
+        return await Promise.reject(new Error('oh no'));
+      } catch (e) {
+        return 'caught the error';
+      }
+    }
+    fail();
+    ASYNC RESULT:
+    {fulfilled: 'caught the error'}
 
-    
-    npm instal --save-dev eslint 
---save-dev  because it is not a part of my project, eslint is not what I want to upload on server, it is just a development package to optimize code during development
-node-modules folder was created on the project by npm, where eslint is and other packages that work with eslint.<br>
-never change node-modules, it is third party package and it managed by npm<br>
-if we want to share our code we should delete it<br>
-because all dependencies info are in package.json and package-lock.json
-In my package.json new dependency appeared
+The second example returns the promise directly: return aRejectedPromise. There's no await, so the rejection doesn't turn into an exception, so there's nothing for our catch to catch. Instead, this example returns the original rejected promise.
 
-        "devDependencies": {
-            "eslint": "^8.25.0"
-        }
-we also have package-lock.json that holds info dependency and all the dependencies of this dependency...<br>
-ctrl+shift+p =>(opens command panel) and we should choose create eslint configuration<br>
-on the terminal, there will be questions and we should answer them<br>
-Now I can use ESLint in my project
+
+    async function fail() {
+      try {
+        return Promise.reject(new Error('oh no'));
+      } catch (e) {
+        return 'caught the error';
+      }
+    }
+    fail();
+     ASYNC RESULT:
+    {rejected: 'Error: oh no'}
+
 
 <i>22/10/22</i><br>
 <b>Webpack</b><br>
@@ -108,87 +160,40 @@ import { Timer } from './assets/scripts/Timer.js'; => import { Timer } from './a
 
 6. in assets/scripts/app.js file was created by webpack
 
-<i>25/1/22</i><br>
-An async function without any awaits is allowed. All async functions return promises, even if they don't await. So, the function's return value will automatically be wrapped in a fulfilled promise.<br>
-<b>Summarize the rules of exceptions in async/await functions:</b><br>
 
-- async functions always return promises.
-- await turns rejected promises into exceptions.
-- Exceptions inside async functions turn into rejected promises.
-
-Exceptions in async functions: there's an important difference between <i> return somePromise</i> and <i>return await somePromise</i>.<br>
-The await translates rejected promises into exceptions. If we directly return the promise, rejections aren't translated into exceptions at all.
-
-
-    async function fail() {
-      try {
-        return await Promise.reject(new Error('oh no'));
-      } catch (e) {
-        return 'caught the error';
-      }
-    }
-    fail();
-    ASYNC RESULT:
-    {fulfilled: 'caught the error'}
-
-The second example returns the promise directly: return aRejectedPromise. There's no await, so the rejection doesn't turn into an exception, so there's nothing for our catch to catch. Instead, this example returns the original rejected promise.
-
-
-    async function fail() {
-      try {
-        return Promise.reject(new Error('oh no'));
-      } catch (e) {
-        return 'caught the error';
-      }
-    }
-    fail();
-     ASYNC RESULT:
-    {rejected: 'Error: oh no'}
-
-<i>27/10/22</i>
-All async functions return promises, even if they don't await. So, the function's return value will automatically be wrapped in a fulfilled promise.
-
-    async function double(n) {
-      return n * 2;
-    }
-    double(5);
-     ASYNC RESULT:
-    {fulfilled: 10}
+<i>21/10/22</i><br>
+<b>ESLint</b><br>
+I installed ESLint extension in VScode. To make our project to be managible by npm, we should 
     
-<i>29/10/22</i>
-Testing<br>
-There are 3 kind of tools we can use for testing
-1. Unit and integration => Test runner (Execute your tests, summarize results), we can use Mocha
-2. Unit and integration => Assertion library (Define testing logic, conditions, expectations), we can use Chai
-3. End to End => Simulates browser interaction, we can use Puppeteer
-Jest library for 1 and 2
+    npm init    
+after answering all questions in the terminal package.json file was created by npm. Now we can install packages with npm 
 
-<i>31/10/22</i>
-test-helper.js
 
-    function equal(actual, expected, message) {
-      if (actual === expected) {
-        const defaultMessage = `Expected ${expected} and received ${actual}`;
-        console.info("Pass: " + (message || defaultMessage));
-      } else {
-        const defaultMessage = `Expected ${expected} but received ${actual} instead`;
-        console.error("Fail: " + (message || defaultMessage));
-      }
-    }
+    npm install <package name>  
+all dependenses will be stored in package.json. If someone downloads my project from github, this package.json will show all dependences.
+installe eslint
 
-    function notEqual(actual, expected, message) {
-      if (actual !== expected) {
-        const defaultMessage = `${expected} is different to ${actual}`;
-        console.info("Pass: " + (message || defaultMessage));
-      } else {
-        const defaultMessage = `${expected} is the same as ${actual}`;
-        console.error("Fail: " + (message || defaultMessage));
-      }
-    }
+    
+    npm instal --save-dev eslint 
+--save-dev  because it is not a part of my project, eslint is not what I want to upload on server, it is just a development package to optimize code during development
+node-modules folder was created on the project by npm, where eslint is and other packages that work with eslint.<br>
+never change node-modules, it is third party package and it managed by npm<br>
+if we want to share our code we should delete it<br>
+because all dependencies info are in package.json and package-lock.json
+In my package.json new dependency appeared
 
-    function test(name, testFunction) {
-      console.group(name);
-      testFunction();
-      console.groupEnd(name);
-    }
+        "devDependencies": {
+            "eslint": "^8.25.0"
+        }
+we also have package-lock.json that holds info dependency and all the dependencies of this dependency...<br>
+ctrl+shift+p =>(opens command panel) and we should choose create eslint configuration<br>
+on the terminal, there will be questions and we should answer them<br>
+Now I can use ESLint in my project
 
+<i>20/10/22</i>
+Although setTimeout() and then() are asynchronous the Promise then will executes first eventhough setTimeout set to 0
+
+
+    setTimeout(() => console.log('asynchronous 1'), 0);
+    Promise.resolve().then(() => console.log('asynchronous 2'));
+<br>
