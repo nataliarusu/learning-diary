@@ -30,6 +30,10 @@ test-helper.js
 
 <i>29/10/22</i>
 Testing<br>
+<b>Unit testing</b> is a methodology where units of code are tested in isolation from the rest of the application. <br>
+<b>Integration tests</b>, which can be collaboration tests between two or more units.<br>
+<b>Full end-to-end</b> tests of the whole running application with browser interaction.<br> 
+
 There are 3 kind of tools we can use for testing
 1. Unit and integration => Test runner (Execute your tests, summarize results), we can use Mocha
 2. Unit and integration => Assertion library (Define testing logic, conditions, expectations), we can use Chai
