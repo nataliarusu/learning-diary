@@ -1,4 +1,9 @@
 # learning-diary
+<b>regex</b>
+Write a regex that recognizes dogs and cats that are big or fluffy.
+/^(big|fluffy) (cat|dog)$/.test('big dog'); //true
+
+
 <b>Tagged template literals</b><br>
 The tag function has access to the text and template values in the string, and can modify or replace the string.<br>
 
