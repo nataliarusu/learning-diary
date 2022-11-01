@@ -1,7 +1,8 @@
 # learning-diary
-<b>regex</b>
+<b>regex</b><br>
 Write a regex that recognizes dogs and cats that are big or fluffy.
-/^(big|fluffy) (cat|dog)$/.test('big dog'); //true
+
+    /^(big|fluffy) (cat|dog)$/.test('big dog'); //true
 
 
 <b>Tagged template literals</b><br>
