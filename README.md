@@ -3,7 +3,12 @@
 Write a regex that recognizes dogs and cats that are big or fluffy.
 
     /^(big|fluffy) (cat|dog)$/.test('big dog'); //true
+    
+? operator matches a character zero or one times, but not more than one. It is useful when part of a string is optional.
 
+    /^(\d{3}-)?\d{3}-\d{4}$/.test('555-555-5555');//true
+    
+ <code>(\d{3}-)?</code> all before <code>?</code> is optional vs <code>\d{3}-?</code> only <code>-</code> before <code>?</code> is optional
 
 <b>Tagged template literals</b><br>
 The tag function has access to the text and template values in the string, and can modify or replace the string.<br>
