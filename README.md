@@ -1,5 +1,15 @@
 # learning-diary
 <b>regex</b><br>
+The ^ is only special if it's the first character in the set. There, it means "negate this set". But a ^ anywhere else in the set is just another literal character.
+
+    /[^b]/.test('b');//starts with b
+    RESULT:
+    false
+    >
+    /[b^]/.test('b');//b|^
+    RESULT:
+    true
+
 Write a regex that recognizes dogs and cats that are big or fluffy.
 
     /^(big|fluffy) (cat|dog)$/.test('big dog'); //true
