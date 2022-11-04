@@ -1,5 +1,17 @@
 # learning-diary
 <b>regex</b><br>
+Regexes provide a way to match the word boundary <code>\b</code><br>
+<code>\b</code> only matches where a word character is next to a non-word character.
+
+    /\bcat\b/.test("Where's the cat's toy?");
+    RESULT:
+    true
+    
+    
+    /\bcat\b/.test('It was difficult to locate, but');
+    RESULT:
+    false
+
 The ^ is only special if it's the first character in the set. There, it means "negate this set". But a ^ anywhere else in the set is just another literal character.
 
     /[^b]/.test('b');//starts with b
