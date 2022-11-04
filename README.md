@@ -3,6 +3,8 @@
 {8,} means "at least eight characters"<br>
 
     /^[fho]{3,}$/.test('hoof'); //true, rule at least 3 chars
+    
+If we need five or fewer characters, we can say .{0,5}<br>
 
 <code>/[hbd-fa]/</code> can be thought of as <code>/(h|b|[d-f]|a)/</code> <br>
 Regexes provide a way to match the word boundary <code>\b</code><br>
