@@ -1,5 +1,9 @@
 # learning-diary
 <b>regex</b><br>
+{8,} means "at least eight characters"<br>
+
+    /^[fho]{3,}$/.test('hoof'); //true, rule at least 3 chars
+
 <code>/[hbd-fa]/</code> can be thought of as <code>/(h|b|[d-f]|a)/</code> <br>
 Regexes provide a way to match the word boundary <code>\b</code><br>
 <code>\b</code> only matches where a word character is next to a non-word character.
