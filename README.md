@@ -1,4 +1,6 @@
 # learning-diary
+All numbers in JavaScript are floating point, which means that they become imprecise past a certain threshold. This can be especially dangerous when dealing with numbers that we think of as integers.<br>
+
 <b>regex</b><br>
 {8,} means "at least eight characters"<br>
 
