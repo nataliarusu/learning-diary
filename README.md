@@ -1,5 +1,7 @@
 # learning-diary
 All numbers in JavaScript are floating point, which means that they become imprecise past a certain threshold. This can be especially dangerous when dealing with numbers that we think of as integers.<br>
+MIN_SAFE_INTEGER and MAX_SAFE_INTEGER (9007199254740991, -9007199254740991)
+
 
 <b>regex</b><br>
 {8,} means "at least eight characters"<br>
