@@ -1,6 +1,43 @@
 # learning-diary
+<b>JSON</b><br>
+The stringify method turns a JavaScript object or value into a JSON string. The parse method turns a JSON string back into an object.
+       
+       JSON.stringify({a: 2}) // '{"a":2}' 
+       JSON.parse('{"a":2}') // {a: 2} 
+       
+By combining the two methods, we can "round-trip" an object to JSON and back, ending up with the same object that we started with.
+    
+    JSON.parse(JSON.stringify({name: 'Amir'})); // {name: 'Amir'}
+       
+<code>undefined</code> not allowed in JSON. When we call stringify, any undefineds in the original object will be turned into nulls. If we then parse the resulting JSON, we'll get a null out. 
+
+    JSON.stringify([1, undefined, 2]); // '[1,null,2]'
+    JSON.parse(JSON.stringify([1, undefined, 2])); // [1, null, 2]
+    
+Sometimes, we want an object to specify how it should be serialized to JSON. We can do that by putting a function in its toJSON property. JSON.stringify will automatically call that function and use its result rather than the original object.
+
+    
+    const user = {
+      name: 'Amir',
+      toJSON: () => 'This is Amir!'
+    };
+    JSON.parse(JSON.stringify(user));
+    // 'This is Amir!'
+    
+The toJSON function isn't responsible for actually converting to JSON; stringify will still do that part. Instead, toJSON returns a new JavaScript value to be serialized in place of the original.
+
+    JSON.parse(JSON.stringify({
+        name: 'Amir',
+        toJSON: () => ({thisWas: 'Amir'})
+        })
+    ); // {thisWas: 'Amir'}
+
+<b>isSafeInteger</b><br>
 All numbers in JavaScript are floating point, which means that they become imprecise past a certain threshold. This can be especially dangerous when dealing with numbers that we think of as integers.<br>
 MIN_SAFE_INTEGER and MAX_SAFE_INTEGER (9007199254740991, -9007199254740991)
+
+    Number.isSafeInteger(value);//true or false
+value is a number that is a safe integer
 
 
 <b>regex</b><br>
