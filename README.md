@@ -15,10 +15,27 @@ We provide some initial values to Set's constructor, then <code>.add</code> more
        names.add('Cindy');
        names.has('Cindy');
        
- To get the elements out of the set, we can use the .values method. It returns an iterator and then by converting the iterator into an array with Array.from(someSet)
+ To get the elements out of the set, we can use the <code>.values</code> method. It returns an iterator and then by converting the iterator into an array with Array.from(someSet)
  
-       const names = new Set(['Amir', 'Betty']);
-       Array.from(names.values()); // ['Amir', 'Betty']
+       const names = new Set(['Betty', 'Amir']);
+       Array.from(names.values()); // ['Betty', 'Amir']
+       names.add('Cindy');
+       Array.from(names.values()); // ['Betty', 'Amir', 'Cindy']
+       
+ Elements can be deleted from a set with the <code>.delete</code> method. And the entire set can be cleared with <code>.clear</code>.
+       
+       names.delete('Cindy'); //['Betty', 'Amir']
+       
+Sets have a <code>.size</code> property that returns the number of items in the set.
+       
+       names.size; //2
+       
+A set's size reflects the number of unique values that it holds. Duplicates passed to the constructor or added with .add don't contribute to the size.
+       
+       const names = new Set(['Amir', 'Betty', 'Amir']);
+       names.size;// 2
+       
+An array's .includes method slows down as the array gets larger. Likewise for many other array methods. But sets don't have that problem! A set's .has method is a constant O(1): it always takes the same amount of time regardless of how many elements there are.
        
 </details>
 <hr>
