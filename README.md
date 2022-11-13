@@ -35,7 +35,7 @@ The toJSON function isn't responsible for actually converting to JSON; stringify
     ); // {thisWas: 'Amir'}
 
 </details>
-
+<hr>
 <b>isSafeInteger</b><br>
 All numbers in JavaScript are floating point, which means that they become imprecise past a certain threshold. This can be especially dangerous when dealing with numbers that we think of as integers.<br>
 MIN_SAFE_INTEGER and MAX_SAFE_INTEGER (9007199254740991, -9007199254740991)
@@ -43,7 +43,7 @@ MIN_SAFE_INTEGER and MAX_SAFE_INTEGER (9007199254740991, -9007199254740991)
     Number.isSafeInteger(value);//true or false
 value is a number that is a safe integer
 
-
+<hr>
 <b>regex</b><br>
 {8,} means "at least eight characters"<br>
 
@@ -84,6 +84,7 @@ Write a regex that recognizes dogs and cats that are big or fluffy.
     
  <code>(\d{3}-)?</code> all before <code>?</code> is optional vs <code>\d{3}-?</code> only <code>-</code> before <code>?</code> is optional
 
+<hr>
 <b>Tagged template literals</b><br>
 The tag function has access to the text and template values in the string, and can modify or replace the string.<br>
 
@@ -101,7 +102,7 @@ If the template literal ends in an interpolated value, like `age: ${age}`, JavaS
     {strings: ['the numbers ', ' and ', ''], values: [1, 2]}
 https://www.executeprogram.com/courses/modern-javascript/lessons/tagged-template-literals
 
-
+<hr>
 <b> ::before ::after </b><br>
 Do ::before and ::after elements only display if we use position absolute?
 - If content: ''; 
@@ -128,7 +129,7 @@ position: absolute, fixed...
 Note: if pseudo el has position absolute, don't forget to add position: relative; to the element, which has these pseudo selectors.<br>
 If no position is provided the pseudo el takes the root el as parent
 
-<i>31/10/22</i>
+<hr>
 test-helper.js
 
     function equal(actual, expected, message) {
@@ -157,7 +158,7 @@ test-helper.js
       console.groupEnd(name);
     }
 
-<i>29/10/22</i>
+<hr>
 Testing<br>
 <b>Unit testing</b> is a methodology where units of code are tested in isolation from the rest of the application. <br>
 <b>Integration tests</b>, which can be collaboration tests between two or more units.<br>
@@ -170,8 +171,7 @@ There are 3 kind of tools we can use for testing
 Jest library for 1 and 2
 
 
-
-<i>27/10/22</i><br>
+<hr>
 All async functions return promises, even if they don't await. So, the function's return value will automatically be wrapped in a fulfilled promise.
 
     async function double(n) {
@@ -181,7 +181,6 @@ All async functions return promises, even if they don't await. So, the function'
      ASYNC RESULT:
     {fulfilled: 10}
     
-<i>25/1/22</i><br>
 An async function without any awaits is allowed. All async functions return promises, even if they don't await. So, the function's return value will automatically be wrapped in a fulfilled promise.<br>
 <b>Summarize the rules of exceptions in async/await functions:</b><br>
 
@@ -219,7 +218,7 @@ The second example returns the promise directly: return aRejectedPromise. There'
     {rejected: 'Error: oh no'}
 
 
-<i>22/10/22</i><br>
+<hr>
 <b>Webpack</b><br>
 webpack is a module bundler. Its main purpose is to bundle JavaScript files for usage in a browser into one js file<br>
 1. 
@@ -293,8 +292,7 @@ import { Timer } from './assets/scripts/Timer.js'; => import { Timer } from './a
 
 6. in assets/scripts/app.js file was created by webpack
 
-
-<i>21/10/22</i><br>
+<hr>
 <b>ESLint</b><br>
 I installed ESLint extension in VScode. To make our project to be managible by npm, we should 
     
@@ -323,7 +321,7 @@ ctrl+shift+p =>(opens command panel) and we should choose create eslint configur
 on the terminal, there will be questions and we should answer them<br>
 Now I can use ESLint in my project
 
-<i>20/10/22</i><br>
+<hr>
 Although setTimeout() and then() are asynchronous the Promise then will executes first eventhough setTimeout set to 0
 
 
