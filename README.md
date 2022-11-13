@@ -1,5 +1,7 @@
 # learning-diary
-<b>JSON</b><br>
+<details>
+<summary><b>JSON</b></summary>
+<br>
 The stringify method turns a JavaScript object or value into a JSON string. The parse method turns a JSON string back into an object.
        
        JSON.stringify({a: 2}) // '{"a":2}' 
@@ -31,6 +33,8 @@ The toJSON function isn't responsible for actually converting to JSON; stringify
         toJSON: () => ({thisWas: 'Amir'})
         })
     ); // {thisWas: 'Amir'}
+
+</details>
 
 <b>isSafeInteger</b><br>
 All numbers in JavaScript are floating point, which means that they become imprecise past a certain threshold. This can be especially dangerous when dealing with numbers that we think of as integers.<br>
