@@ -1,5 +1,30 @@
 # learning-diary
 <details>
+<summary><b>Set data type in JS</b></summary>
+<br>
+A JavaScript set is a collection, it's ordered, and it contains only unique values. <br>
+We provide some initial values to Set's constructor, then <code>.add</code> more values later. We can also ask a set whether it <code>.has</code> a given value.
+
+       const names = new Set(['Amir', 'Betty', 'Cindy']);
+       names.has('Amir'); // true
+
+<br>
+ JavaScript sets are ordered, they'll always come back in the order that they were inserted.
+ 
+       const names = new Set(['Amir', 'Betty']);
+       names.add('Cindy');
+       names.has('Cindy');
+       
+ To get the elements out of the set, we can use the .values method. It returns an iterator and then by converting the iterator into an array with Array.from(someSet)
+ 
+       const names = new Set(['Amir', 'Betty']);
+       Array.from(names.values()); // ['Amir', 'Betty']
+       
+</details>
+<hr>
+
+
+<details>
 <summary><b>JSON</b></summary>
 <br>
 The stringify method turns a JavaScript object or value into a JSON string. The parse method turns a JSON string back into an object.
