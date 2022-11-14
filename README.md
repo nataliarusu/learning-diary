@@ -82,6 +82,23 @@ For example, if we pass an array of strings as the replacer, then only keys name
 
        JSON.parse(JSON.stringify({age: 36, city: 'Paris', name: 'Amir'},['name', 'city'])); // {name: 'Amir', city: 'Paris'}
 
+The replacer can also be a callback function taking two arguments, key and value. During stringification, our replacer is called with the key and value for each object, array, string, etc.<br>       
+The replacer gets a chance to modify every part of the object as it's stringified. 
+       
+       JSON.stringify({age: 36, name: 'Amir', cat: {name: 'Ms. Fluff'}},
+              (key, value) => {console.log(`Key: ${JSON.stringify(key)}, value: ${JSON.stringify(value)}`);
+              return value;
+              }
+       );
+       //
+       Key: "", value: {"age":36,"name":"Amir","cat":{"name":"Ms. Fluff"}}
+       Key: "age", value: 36
+       Key: "name", value: "Amir"
+       Key: "cat", value: {"name":"Ms. Fluff"}
+       Key: "name", value: "Ms. Fluff"
+       
+       
+       
 </details>
 <hr>
 <b>isSafeInteger</b><br>
