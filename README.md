@@ -98,6 +98,7 @@ The replacer gets a chance to modify every part of the object as it's stringifie
        Key: "name", value: "Ms. Fluff"
        
  JSON.parse has a similar feature called reviver. As the JSON is decoded, the reviver can replace any value with a new value.
+       
        JSON.parse('{"name": "Amir", "age": 36}', 
               (key, value) => {
                      if (key === 'age' && value === 36) {
