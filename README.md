@@ -37,6 +37,52 @@ A set's size reflects the number of unique values that it holds. Duplicates pass
        
 An array's .includes method slows down as the array gets larger. Likewise for many other array methods. But sets don't have that problem! A set's .has method is a constant O(1): it always takes the same amount of time regardless of how many elements there are.
        
+<details>
+       <summary>union, intersection, and difference</summary>
+       
+       const set1 = new Set([1, 2, 3]);
+       const set2 = new Set([2, 3, 4]);
+
+<b>unionSet</b> a set from an array with duplicate values, the duplicates are removed
+
+       const unionSet = new Set([...set1, ...set2]); 
+       Array.from(unionSet); // [1, 2, 3, 4]
+
+
+<b>setIntersection</b> function that returns the intersection of two sets.<br> 
+convert set1 into an array, then filter it, checking for whether each element exists in set2<br> 
+
+       function setIntersection (set1, set2){
+              return new Set(Array.from(set1).filter(el=>set2.has(el)));
+       }
+       const intersectionSet = setIntersection(set1, set2); 
+       Array.from(intersectionSet); // [2, 3] 
+       
+       
+ 
+<b>setDifference</b> function that returns the difference of two sets.<br> 
+"set difference" means "all items that are in the first set, but aren't in the second set."<br> 
+
+       function setDifference (set1, set2){
+              return new Set(Array.from(set1).filter(el=>!set2.has(el)));//! in filter
+       }
+       const differenceSet = setDifference(set1, set2); 
+       Array.from(differenceSet); //[1]
+
+
+
+The element 4 is in the second set, but not in the first set. <br> 
+When speaking casually, we might say that 4 is part of the "difference" between the two sets. <br> 
+But in both math and programming, elements from the second set aren't included in the set difference.<br> 
+
+The operation called "symmetric set difference" means "every element that's in only one of the two sets." If we used symmetric set difference in the example above, we'd get [1, 4].
+
+
+
+
+
+</details>
+       
 </details>
 <hr>
 
