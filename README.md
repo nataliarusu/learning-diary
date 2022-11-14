@@ -75,6 +75,12 @@ The toJSON function isn't responsible for actually converting to JSON; stringify
         toJSON: () => ({thisWas: 'Amir'})
         })
     ); // {thisWas: 'Amir'}
+    
+    
+JSON.stringify takes a JavaScript object or value as its argument, and turns it into JSON. We can customize its output by passing a second argument, replacer. <br>
+For example, if we pass an array of strings as the replacer, then only keys names in the array will be included in the resulting object.
+
+       JSON.parse(JSON.stringify({age: 36, city: 'Paris', name: 'Amir'},['name', 'city'])); // {name: 'Amir', city: 'Paris'}
 
 </details>
 <hr>
