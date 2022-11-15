@@ -1,4 +1,10 @@
 # learning-diary
+<b>TypeScript</b>
+
+Learning basics https://github.com/nataliarusu/ts-basics
+
+---
+
 <details>
 <summary><b>Set data type in JS</b></summary>
 <br>
@@ -86,7 +92,6 @@ The operation called "symmetric set difference" means "every element that's in o
 </details>
 <hr>
 
-
 <details>
 <summary><b>JSON</b></summary>
 <br>
@@ -165,7 +170,8 @@ MIN_SAFE_INTEGER and MAX_SAFE_INTEGER (9007199254740991, -9007199254740991)
 value is a number that is a safe integer
 
 <hr>
-<b>regex</b><br>
+<details>
+<summary><b>regex</b></summary>
 {8,} means "at least eight characters"<br>
 
     /^[fho]{3,}$/.test('hoof'); //true, rule at least 3 chars
@@ -222,9 +228,11 @@ If the template literal ends in an interpolated value, like `age: ${age}`, JavaS
     RESULT:
     {strings: ['the numbers ', ' and ', ''], values: [1, 2]}
 https://www.executeprogram.com/courses/modern-javascript/lessons/tagged-template-literals
-
+</details>
 <hr>
-<b> ::before ::after </b><br>
+<details>
+<summary><b> ::before ::after </b></summary>
+<br>
 Do ::before and ::after elements only display if we use position absolute?
 - If content: ''; 
     -  We don't need to have absolute positioning. We just need to set display property for the ::before and ::after pseudo-elements
@@ -249,8 +257,11 @@ position: absolute, fixed...
 <i>before => content => after</i>   these are layers of one element and the content will be inserted in this order*/<br>
 Note: if pseudo el has position absolute, don't forget to add position: relative; to the element, which has these pseudo selectors.<br>
 If no position is provided the pseudo el takes the root el as parent
-
+</details>
 <hr>
+<details>
+<summary><b>Testing</b></summary>
+
 test-helper.js
 
     function equal(actual, expected, message) {
@@ -279,8 +290,7 @@ test-helper.js
       console.groupEnd(name);
     }
 
-<hr>
-Testing<br>
+<br>
 <b>Unit testing</b> is a methodology where units of code are tested in isolation from the rest of the application. <br>
 <b>Integration tests</b>, which can be collaboration tests between two or more units.<br>
 <b>Full end-to-end</b> tests of the whole running application with browser interaction.<br> 
@@ -291,8 +301,11 @@ There are 3 kind of tools we can use for testing
 3. End to End => Simulates browser interaction, we can use Puppeteer
 Jest library for 1 and 2
 
-
+</details>
 <hr>
+
+<details>
+<summary><b>async await</b></summary>
 All async functions return promises, even if they don't await. So, the function's return value will automatically be wrapped in a fulfilled promise.
 
     async function double(n) {
@@ -338,9 +351,11 @@ The second example returns the promise directly: return aRejectedPromise. There'
      ASYNC RESULT:
     {rejected: 'Error: oh no'}
 
-
+</details>
 <hr>
-<b>Webpack</b><br>
+<details>
+<summary><b>Webpack</b></summary>
+<br>
 webpack is a module bundler. Its main purpose is to bundle JavaScript files for usage in a browser into one js file<br>
 1. 
 
@@ -412,9 +427,12 @@ absoluteWebpackConfigFilePath/assets/scripts
 import { Timer } from './assets/scripts/Timer.js'; => import { Timer } from './assets/scripts/Timer';
 
 6. in assets/scripts/app.js file was created by webpack
-
+</details>
 <hr>
-<b>ESLint</b><br>
+
+<details>
+<summary><b>ESLint</b></summary>
+<br>
 I installed ESLint extension in VScode. To make our project to be managible by npm, we should 
     
     npm init    
@@ -441,7 +459,7 @@ we also have package-lock.json that holds info dependency and all the dependenci
 ctrl+shift+p =>(opens command panel) and we should choose create eslint configuration<br>
 on the terminal, there will be questions and we should answer them<br>
 Now I can use ESLint in my project
-
+</details>
 <hr>
 Although setTimeout() and then() are asynchronous the Promise then will executes first eventhough setTimeout set to 0
 
