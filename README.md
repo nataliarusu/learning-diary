@@ -4,6 +4,29 @@
 Learning basics https://github.com/nataliarusu/ts-basics
 
 ---
+<details>
+<summary><b>Symbols in JS</b></summary>
+<br>
+Symbols are a new data type that can be used in object keys.<br>
+Two symbols are never equal to each other, even if they have the same description
+
+       Symbol('cat') == Symbol('cat'); // false
+       
+To use the symbol itself as a key of an object, we can use computed property syntax: {[nameSymbol]: ...}. Then, to access a symbol key, we can do user[nameSymbol].<br>
+
+       const nameSymbol = Symbol('name');
+       const user1 = {[nameSymbol]: 'Amir'};
+       user1[nameSymbol]; // 'Amir'
+       ------------------------
+       const nameSymbol = Symbol('name');
+       const user2 = { [nameString]: 'Amir',  [nameSymbol]: 'Betty'}; // {name: 'Amir', Symbol(name): 'Betty'}
+       [user2['name'], user2[nameSymbol]]; // ['Amir', 'Betty']
+       [user.name, user[nameSymbol]]; // ['Amir', 'Betty']
+       
+
+</details>
+
+---
 
 <details>
 <summary><b>Set data type in JS</b></summary>
