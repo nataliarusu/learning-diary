@@ -1,4 +1,17 @@
 # learning-diary
+
+<details>
+<summary><b>SQL</b></summary>
+
+
+       exec(`CREATE TABLE users (email TEXT, name TEXT)`);
+       exec(`INSERT INTO users (email, name) VALUES ('amir@example.com', 'Amir')`);
+       exec(`SELECT * FROM users`);
+
+</details>
+
+
+---
 <b>TypeScript</b>
 
 Learning basics https://github.com/nataliarusu/ts-basics
