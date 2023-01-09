@@ -7,6 +7,8 @@
        exec(`CREATE TABLE users (email TEXT, name TEXT)`);
        exec(`INSERT INTO users (email, name) VALUES ('amir@example.com', 'Amir')`);
        exec(`SELECT * FROM users`);
+       OR
+       exec(`SELECT * FROM users WHERE name = 'Amir'`);
 
 </details>
 
