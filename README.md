@@ -6,10 +6,60 @@
 
        exec(`CREATE TABLE users (email TEXT, name TEXT)`);
        exec(`INSERT INTO users (email, name) VALUES ('amir@example.com', 'Amir')`);
-       exec(`SELECT * FROM users`);
-       OR
-       exec(`SELECT * FROM users WHERE name = 'Amir'`);
+       exec(`SELECT * FROM users`); //* means all columns
 
+Instead of the *, we can ask for only the columns that we care about. When we SELECT columns by name, only those columns are returned to us. Keep in mind that we still get an array of rows, and each row will be an object. Selecting a column that doesn't exist is an error.
+       
+       exec(`SELECT name FROM users`); //[{name: 'Amir'}]
+       
+The expression SELECT ... WHERE /* condition here */ returns only the users for whom the condition is true. When multiple rows match a WHERE, they're all returned. Most SQL databases support not-equal comparisons with the familiar != operator. Sometimes you'll also see the <> operator, as in a <> b, which means the same thing.
+       
+       exec(`SELECT * FROM users WHERE name = 'Amir'`); //[{email: 'amir@example.com', name: 'Amir'}]
+       
+
+       
+When we query an INTEGER or REAL column, the values come back to us as JavaScript numbers. For example, in the query the age comes back as 3, not '3'.
+       
+We can select by multiple columns using AND and OR. Remember that WHERE can match multiple rows!
+       
+       exec(`CREATE TABLE users (email TEXT, name TEXT)`);
+       exec(`INSERT INTO users (email, name) VALUES ('amir@example.com', 'Amir')`);
+       exec(`INSERT INTO users (email, name) VALUES ('betty.j@example.com', 'Betty')`);
+       exec(`INSERT INTO users (email, name) VALUES ('betty.k@example.com', 'Betty')`);
+       exec(`INSERT INTO users (email, name) VALUES ('cindy@example.com', 'Cindy')`);
+       
+       exec(`SELECT email FROM users WHERE name = 'Betty';`);
+       RESULT:
+       [{email: 'betty.j@example.com'}, {email: 'betty.k@example.com'}]
+       
+       exec(`SELECT email FROM users WHERE name = 'Betty' AND email = 'betty.j@example.com';`);
+       RESULT:
+       [{email: 'betty.j@example.com'}]
+       
+       exec(`SELECT email FROM users WHERE name = 'Amir' OR name = 'Cindy';`);
+       RESULT:
+       [{email: 'amir@example.com'}, {email: 'cindy@example.com'}]
+       
+Write a query to select the ages of the cats named "Keanu" or "Katy Purry".
+
+       exec(`CREATE TABLE cats (name TEXT, age INTEGER)`);
+       exec(`INSERT INTO cats (name, age) VALUES ('Ms. Fluff', 3)`);
+       exec(`INSERT INTO cats (name, age) VALUES ('Keanu', 2)`);
+       exec(`INSERT INTO cats (name, age) VALUES ('Katy Purry', 5)`);
+       exec(`INSERT INTO cats (name, age) VALUES ('Wilford', 3)`);
+       exec(`SELECT age FROM cats WHERE name="Keanu" OR name="Katy Purry"`);
+       RESULT:
+       [{age: 2}, {age: 5}]
+       
+       
+Inserting multiple rows: We write an insert statement as normal, but with multiple rows of data after VALUES. Each one becomes a separate row in the database.
+       
+       exec(`INSERT INTO users (name) VALUES ('Amir'), ('Betty'), ('Cindy')`);
+       
+WHERE clauses can call functions. For example, SQLite defines a length function that works on strings.
+       
+       exec(`SELECT name FROM cats WHERE length(name) > 4`);
+       
 </details>
 
 
