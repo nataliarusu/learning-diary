@@ -66,6 +66,16 @@ If our UPDATE's WHERE clause matches multiple rows, then all of those rows will 
 
        exec(`UPDATE cats SET age = 4 WHERE name = 'Ms. Fluff'`)
        
+       
+<b>Column aliases</b><br>
+We can rename columns when needed using AS.<br>
+Write a query to retrieve all of the cats. Alias the "name" column to "cat_name" and alias "age" to "cat_age"
+       
+       exec(`CREATE TABLE cats (name TEXT, age INTEGER)`);
+       exec(`INSERT INTO cats (name, age) VALUES ('Keanu', 2)`);
+       exec(`SELECT name AS cat_name, age AS cat_age FROM cats`); // [{cat_name: 'Keanu', cat_age: 2}]
+       
+       
 </details>
 
 
