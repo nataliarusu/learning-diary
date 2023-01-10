@@ -52,13 +52,19 @@ Write a query to select the ages of the cats named "Keanu" or "Katy Purry".
        [{age: 2}, {age: 5}]
        
        
-Inserting multiple rows: We write an insert statement as normal, but with multiple rows of data after VALUES. Each one becomes a separate row in the database.
+<b>Inserting multiple rows</b><br>
+We write an insert statement as normal, but with multiple rows of data after VALUES. Each one becomes a separate row in the database.
        
        exec(`INSERT INTO users (name) VALUES ('Amir'), ('Betty'), ('Cindy')`);
        
 WHERE clauses can call functions. For example, SQLite defines a length function that works on strings.
        
        exec(`SELECT name FROM cats WHERE length(name) > 4`);
+       
+<b>Updating rows</b><br>
+If our UPDATE's WHERE clause matches multiple rows, then all of those rows will be updated. This makes UPDATE potentially dangerous. Our UPDATE with WHERE only affects the rows that matches condition!
+
+       exec(`UPDATE cats SET age = 4 WHERE name = 'Ms. Fluff'`)
        
 </details>
 
