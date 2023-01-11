@@ -74,7 +74,11 @@ Write a query to retrieve all of the cats. Alias the "name" column to "cat_name"
        exec(`CREATE TABLE cats (name TEXT, age INTEGER)`);
        exec(`INSERT INTO cats (name, age) VALUES ('Keanu', 2)`);
        exec(`SELECT name AS cat_name, age AS cat_age FROM cats`); // [{cat_name: 'Keanu', cat_age: 2}]
-       
+
+<b>UNIQUE</b><br>
+Create a cats table with two columns, name (the name of the cat) and owner_name. Add a uniqueness constraint to ensure that an owner can't have two cats with the same name.
+
+       exec(`CREATE TABLE cats (name TEXT, owner_name TEXT, UNIQUE(name, owner_name))`);
        
 </details>
 
