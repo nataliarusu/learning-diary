@@ -79,6 +79,17 @@ Write a query to retrieve all of the cats. Alias the "name" column to "cat_name"
 Create a cats table with two columns, name (the name of the cat) and owner_name. Add a uniqueness constraint to ensure that an owner can't have two cats with the same name.
 
        exec(`CREATE TABLE cats (name TEXT, owner_name TEXT, UNIQUE(name, owner_name))`);
+  
+<b> age>=2 and age<=3 </b><br>
+most SQL dialects also have a special BETWEEN operator. In SQL, instead of x >= y and x <= z, we can say x BETWEEN y AND z. (Remember that SQLite represents true as 1 and false as 0.)
+
+              exec(`CREATE TABLE cats (name TEXT, age INTEGER)`);
+              exec(`INSERT INTO cats (name, age) VALUES ('Ms. Fluff', 3)`);
+              exec(`INSERT INTO cats (name, age) VALUES ('Katy Purry', 5)`);
+              // Note that there are two inserts above, so this query returns two rows!
+              exec(`SELECT name, age BETWEEN 2 AND 3 AS is_2_or_3 FROM cats`);
+              RESULT:
+              [{name: 'Ms. Fluff', is_2_or_3: 1}, {name: 'Katy Purry', is_2_or_3: 0}]
        
 </details>
 
